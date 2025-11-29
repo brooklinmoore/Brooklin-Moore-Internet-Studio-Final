@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Monstera deliciosa — Rooted</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header container">
+    <h1 class="site-title">Rooted</h1>
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="plants.html">Plants</a>
+      <a href="articles.html">Guides</a>
+      <a href="videos.html">Videos</a>
+      <a href="seed-exchange.html">Seed Exchange</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main class="container" style="margin-top:1rem">
+    <article class="panel" aria-labelledby="plant-title">
+      <header>
+        <h1 id="plant-title" style="font-family:'Yeseva One'">Monstera deliciosa</h1>
+        <p class="lead">Tropical vining plant with fenestrated leaves. Beginner→Intermediate.</p>
+      </header>
+
+      <figure style="margin:1rem 0">
+        <img src="images/monstera-large.jpg" alt="Monstera deliciosa large leaves" class="article-hero">
+        <figcaption style="color:var(--muted);margin-top:.4rem">Photo: mature Monstera leaf</figcaption>
+      </figure>
+
+      <section aria-label="Care summary">
+        <h2 style="font-family:'Yeseva One'">Care summary</h2>
+        <dl>
+          <dt><strong>Light</strong></dt>
+          <dd>Bright indirect light.</dd>
+
+          <dt><strong>Water</strong></dt>
+          <dd>Water when top 2 inches of soil are dry; moderate humidity preferred.</dd>
+
+          <dt><strong>Soil</strong></dt>
+          <dd>Well-draining potting mix with perlite.</dd>
+
+          <dt><strong>Difficulty</strong></dt>
+          <dd>Beginner → Intermediate</dd>
+        </dl>
+      </section>
+
+      <section aria-label="Diagnosis tool" style="margin-top:1rem">
+        <h2 style="font-family:'Yeseva One'">Symptom checker</h2>
+        <p class="muted">Describe the symptom or select common options — suggestions appear below.</p>
+
+        <form method="post" action="/api/diagnose" class="panel" aria-label="Diagnose form">
+          <label for="symptom">What do you see?</label>
+          <select id="symptom" name="symptom">
+            <option>Yellowing leaves</option>
+            <option>Brown crispy edges</option>
+            <option>Leaf droop</option>
+            <option>Brown spots</option>
+          </select>
+
+          <label for="notes">Notes (optional)</label>
+          <textarea id="notes" name="notes" placeholder="Tell us more about watering, light, recent changes..."></textarea>
+
+          <div style="margin-top:.6rem;display:flex;gap:.5rem;">
+            <button type="submit" class="btn">Get suggestions</button>
+            <a href="articles.html" class="btn secondary">Read care guide</a>
+          </div>
+        </form>
+
+        <div style="margin-top:1rem">
+          <h3>Suggested actions</h3>
+          <ul>
+            <li>Check for overwatering: remove plant, inspect roots for rot.</li>
+            <li>Move to brighter indirect light if leaves are pale.</li>
+            <li>Trim brown edges; avoid fertilizers until recovery.</li>
+          </ul>
+        </div>
+      </section>
+
+      <aside style="margin-top:1rem" aria-label="Related content">
+        <h3>Related articles</h3>
+        <ul>
+          <li><a href="articles.html">How to repot without stress</a></li>
+          <li><a href="articles.html">Humidity hacks for tropicals</a></li>
+        </ul>
+      </aside>
+    </article>
+
+    <footer class="site-footer">© <span id="year3"></span> Rooted</footer>
+  </main>
+
+  <script>document.getElementById('year3').textContent=new Date().getFullYear();</script>
+</body>
+</html>

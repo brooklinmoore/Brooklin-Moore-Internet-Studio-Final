@@ -1,16 +1,126 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Final</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rooted — Home</title>
+  <meta name="description" content="Rooted: care guides, local shops, seed exchange, and community for plant parents." />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <header class="site-header container" role="banner">
+    <div>
+      <h1 class="site-title">Rooted <span class="brand-sub">plant partner</span></h1>
+    </div>
 
-	<header>
-		<h1>Brooklin Moore</h1>
-        <p>My index place holder</p>
-	</header>
+    <nav class="primary-nav" role="navigation" aria-label="Primary">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="plants.html">Plants</a>
+      <a href="articles.html">Guides</a>
+      <a href="videos.html">Videos</a>
+      <a href="seed-exchange.html">Seed Exchange</a>
+      <a href="about.html">About</a>
+    </nav>
 
-	<script src="./assets/js/main.js"></script>
+    <div class="header-search" role="search" aria-label="Site search">
+      <input type="search" placeholder="Search plants, guides, shops..." aria-label="Search" />
+      <button>Search</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <h1>Find care for every plant, from seed to shelf.</h1>
+        <p class="lead">Search trusted care profiles, diagnose common problems, find local nurseries, and trade seeds with your community.</p>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Quick Diagnose</h3>
+            <p>Tell us what your plant looks like and get a list of possible problems and simple fixes.</p>
+          </div>
+          <div class="card">
+            <h3>Local Shops</h3>
+            <p>Locate nurseries, specialty growers, and plant shops near you.</p>
+          </div>
+          <div class="card">
+            <h3>Seed Swap</h3>
+            <p>Browse community seed listings — moderated and easy to search.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h3>Featured</h3>
+        <div>
+          <img src="images/featured-snakeplant.jpg" alt="Snake plant in pot" style="width:100%;height:140px;object-fit:cover;border-radius:8px" />
+          <h4 style="margin:.6rem 0 0">Snake Plant — Beginner favorite</h4>
+          <p class="lead" style="margin:0">Hardy, low water, great air qualities.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="container content" aria-label="Main content">
+      <main class="panel" role="main">
+        <h2 style="font-family:'Yeseva One';margin:0">Popular plants</h2>
+        <p class="lead">Browse by difficulty, light needs, and popularity.</p>
+
+        <div class="plant-grid" aria-live="polite">
+          <article class="card plant-card">
+            <img src="images/monstera.jpg" alt="Monstera plant in pot">
+            <div class="plant-meta">
+              <h4><a href="plant.html">Monstera deliciosa</a></h4>
+              <span class="tag">Medium light</span>
+              <p class="muted">Tropical vine with dramatic leaves.</p>
+            </div>
+          </article>
+
+          <article class="card plant-card">
+            <img src="images/snakeplant.jpg" alt="Snake plant in pot">
+            <div class="plant-meta">
+              <h4><a href="plant.html">Snake plant</a></h4>
+              <span class="tag">Low light</span>
+              <p class="muted">Low-water resilient houseplant.</p>
+            </div>
+          </article>
+
+          <article class="card plant-card">
+            <img src="images/pilea.jpg" alt="Pilea peperomioides">
+            <div class="plant-meta">
+              <h4><a href="plant.html">Pilea peperomioides</a></h4>
+              <span class="tag">Bright indirect</span>
+              <p class="muted">Popular "money plant" with round leaves.</p>
+            </div>
+          </article>
+        </div>
+      </main>
+
+      <aside class="panel" role="complementary" aria-label="Right column">
+        <h3 style="font-family:'Yeseva One';margin-top:0">Get Started</h3>
+        <p class="lead">New plant parent? Start with these quick reads.</p>
+        <ul style="padding-left:1rem">
+          <li><a href="articles.html">Plant care basics</a></li>
+          <li><a href="articles.html">Watering calendars</a></li>
+          <li><a href="seed-exchange.html">Seed exchange rules</a></li>
+        </ul>
+
+        <div style="margin-top:1rem">
+          <h4 style="margin:.4rem 0">Join the seed board</h4>
+          <p style="margin:0 .0 1rem .0;color:var(--muted)">Browse or post listings. Moderators approve before posting.</p>
+          <a href="seed-exchange.html" class="btn">See listings</a>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="site-footer">
+      <div>© <span id="year"></span> Rooted — Plant partner. Designed for learning & community.</div>
+      <div style="margin-top:.5rem;color:var(--muted)">Fonts: Yeseva One (headers), Josefin Sans (body).</div>
+    </footer>
+  </main>
+
+  <script>
+    // simple dynamic year (no external build)
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
