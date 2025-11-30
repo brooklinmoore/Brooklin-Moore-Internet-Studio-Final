@@ -1,85 +1,212 @@
+/* Base Styles */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #fefefe;
-  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fdf6e3; /* soft cream */
+  color: #2c3e21; /* deep earthy green */
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header & Navigation */
 header {
-  background: #4caf50;
-  padding: 10px 0;
+  background: #3b5a30; /* deep plant green */
+  padding: 15px 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 25px;
   margin: 0;
   padding: 0;
 }
 
 nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
+  color: #fdf6e3;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
 }
 
+nav a:hover {
+  color: #d4f4dd;
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+}
+
+/* Hero Section */
 .hero {
   text-align: center;
-  padding: 100px 20px;
-  background: linear-gradient(to right, #4caf50, #81c784);
-  color: white;
+  padding: 120px 20px;
+  position: relative;
+  background: url('images/hero-placeholder.jpg') center/cover no-repeat; /* hero image */
+  color: #fffbe6;
 }
 
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(60, 90, 48, 0.5); /* overlay for readability */
+  z-index: 0;
+}
+
+.hero h1, .hero p {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  opacity: 0.95;
+}
+
+/* Features Section */
 .features {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
-  padding: 40px 20px;
+  gap: 25px;
+  padding: 50px 20px;
 }
 
 .feature-card {
-  background: #a5d6a7;
-  padding: 40px 20px;
-  border-radius: 15px;
+  background: #f0edd9; /* soft cream card */
+  padding: 50px 30px;
+  border-radius: 20px;
   text-align: center;
-  flex: 1 1 200px;
-  transition: transform 0.2s;
+  flex: 1 1 220px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::after {
+  content: '';
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: rgba(76, 122, 42, 0.15);
+  transform: rotate(45deg);
+  top: -10%;
+  left: -10%;
+  z-index: 0;
 }
 
 .feature-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.25);
 }
 
+.feature-card h3 {
+  position: relative;
+  z-index: 1;
+}
+
+/* Grids (Plants, Articles, Videos, Seeds) */
 .plants-grid, .articles-grid, .videos-grid, .seed-grid {
   display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  padding: 20px;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  padding: 40px 20px;
 }
 
+/* Cards */
 .card, .video-card, .plant-card, .seed-card {
-  background: #f5f5f5;
-  padding: 15px;
-  border-radius: 12px;
-  transition: transform 0.2s;
+  background: #f5f3e8; /* cream card */
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  position: relative;
 }
 
 .card:hover, .video-card:hover, .plant-card:hover, .seed-card:hover {
-  transform: scale(1.03);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.2);
 }
 
+/* Images & Videos */
 img, video {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  object-fit: cover;
 }
 
+/* Cards content */
+.card h3, .video-card h3, .plant-card h3, .seed-card h3 {
+  margin: 0 0 10px 0;
+  color: #3b5a30; /* deep plant green */
+}
+
+.card p, .video-card p, .plant-card p, .seed-card p {
+  color: #53634f;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Footer */
 footer {
   text-align: center;
-  background: #4caf50;
-  color: white;
-  padding: 20px 0;
+  background: #3b5a30;
+  color: #fdf6e3;
+  padding: 30px 0;
   margin-top: 40px;
+  font-size: 0.95rem;
+}
+
+/* Buttons & Forms */
+button {
+  background: #88b04b;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #6e9e34;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #c7d3b3;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+/* Animations */
+@keyframes floatUp {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+.feature-card:hover {
+  animation: floatUp 0.5s ease-in-out;
 }
