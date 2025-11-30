@@ -1,200 +1,170 @@
-/* styles.css */
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Yeseva+One&display=swap');
+/* ------------------------------
+   FONTS
+--------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&family=Josefin+Sans:wght@300;400;600&display=swap');
 
-:root{
-  --bg:#f6fbf6;
-  --card:#ffffff;
-  --muted:#6b7280;
-  --accent:#2f855a;
-  --accent-dark:#276749;
-  --max-width:1100px;
-  --radius:12px;
-}
-
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family: 'Josefin Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  background:linear-gradient(180deg,#f6fbf6 0%, #eef6ee 100%);
-  color:#0f172a;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.45;
+/* ------------------------------
+   ROOT COLORS (Earthy + Bright)
+--------------------------------*/
+:root {
+    --bg: #FAF7F2;                 /* Warm cream */
+    --text: #2F2A26;               /* Deep earthy brown */
+    --accent: #6A8D5A;             /* Natural sage green */
+    --accent-dark: #4E6A3E;        /* Forest green */
+    --card-bg: #FFFFFF;            /* Crisp white */
+    --shadow: rgba(0, 0, 0, 0.06); /* Subtle premium shadow */
+    --border: #E5DED4;             /* Soft tan border */
+    --gold: #C7A27C;               /* Soft gold highlight */
 }
 
-/* Layout */
-.container{
-  max-width:var(--max-width);
-  margin:2rem auto;
-  padding:0 1rem;
+/* ------------------------------
+   GLOBAL RESET
+--------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Header / Nav */
-.site-header{
-  background:var(--card);
-  border-radius:var(--radius);
-  padding:1rem 1.25rem;
-  box-shadow:0 6px 18px rgba(15,23,42,0.06);
-  display:flex;
-  align-items:center;
-  gap:1rem;
-  position:sticky;
-  top:1rem;
-  z-index:50;
-}
-.site-title{
-  font-family: 'Yeseva One', serif;
-  font-size:1.25rem;
-  color:var(--accent-dark);
-  margin:0;
-}
-.brand-sub{
-  color:var(--muted);
-  font-size:.85rem;
-  margin-left:.25rem;
-}
-.primary-nav{
-  margin-left:auto;
-  display:flex;
-  gap:.5rem;
-  align-items:center;
-}
-.primary-nav a{
-  text-decoration:none;
-  color:var(--muted);
-  padding:.45rem .65rem;
-  border-radius:8px;
-  font-weight:600;
-}
-.primary-nav a:hover{background:#eef3ef;color:var(--accent-dark)}
-
-/* Search bar in header */
-.header-search{
-  display:flex;
-  gap:.5rem;
-  align-items:center;
-  margin-left:1rem;
-}
-.header-search input[type="search"]{
-  border:1px solid #e6edf0;
-  padding:.5rem .75rem;
-  border-radius:8px;
-  min-width:220px;
-  background:#fbfdfb;
-  outline:none;
-}
-.header-search button{
-  background:var(--accent);
-  color:white;
-  border:none;
-  padding:.55rem .75rem;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:600;
-}
-.header-search button:hover{background:var(--accent-dark)}
-
-/* Hero */
-.hero{
-  display:grid;
-  grid-template-columns:1fr 320px;
-  gap:1.25rem;
-  align-items:start;
-  margin-top:1.25rem;
-}
-.hero-card{
-  background:var(--card);
-  padding:1.5rem;
-  border-radius:var(--radius);
-  box-shadow:0 6px 18px rgba(15,23,42,0.06);
-}
-.hero h1{
-  font-family:'Yeseva One';
-  font-size:2rem;
-  margin:0 0 .4rem;
-}
-.lead{
-  color:var(--muted);
-  margin:0 0 1rem;
+body {
+    background: var(--bg);
+    font-family: 'Josefin Sans', sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+    letter-spacing: 0.2px;
+    padding-bottom: 4rem;
 }
 
-/* Featured grid */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:1rem;
-  margin-top:1rem;
-}
-.card{
-  background:var(--card);
-  padding:1rem;
-  border-radius:12px;
-  box-shadow:0 6px 18px rgba(15,23,42,0.04);
-}
-.card img{width:100%;height:140px;object-fit:cover;border-radius:8px}
-.card h3{margin:.6rem 0 .25rem;font-size:1rem}
-.card p{margin:0;color:var(--muted);font-size:.95rem}
-
-/* Two-column content */
-.content{
-  display:grid;
-  grid-template-columns:2fr 1fr;
-  gap:1rem;
-  margin-top:1rem;
-}
-main .panel{
-  background:var(--card);
-  padding:1rem;
-  border-radius:12px;
-}
-aside .panel{padding:.75rem}
-
-/* Plant card specifics */
-.plant-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:1rem;
-}
-.plant-card{display:flex;gap:.75rem;align-items:flex-start}
-.plant-card img{width:110px;height:80px;object-fit:cover;border-radius:8px}
-.plant-meta{flex:1}
-.plant-meta h4{margin:.1rem 0 .3rem}
-.tag{display:inline-block;padding:.25rem .5rem;border-radius:8px;background:#eef8ef;color:var(--accent);font-weight:600;font-size:.8rem;margin-right:.25rem}
-
-/* Article styles */
-.article-hero{height:240px;border-radius:8px;object-fit:cover;width:100%}
-.article-body{white-space:normal}
-
-/* Form styles */
-form{display:block}
-input[type="text"], input[type="search"], textarea, select{
-  width:100%;
-  padding:.6rem .7rem;
-  border-radius:8px;
-  border:1px solid #e8eef0;
-  background:#fff;
-  font-family:inherit;
-}
-textarea{min-height:100px;resize:vertical}
-label{display:block;margin:.4rem 0 .25rem;font-weight:600;color:var(--muted);font-size:.9rem}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
-.btn{background:var(--accent);color:#fff;padding:.6rem .85rem;border-radius:8px;border:none;cursor:pointer;font-weight:700}
-.btn.secondary{background:#f3f8f3;color:var(--accent-dark);border:1px solid #e1efe1}
-
-/* Footer */
-.site-footer{
-  margin-top:2rem;
-  padding:1.25rem;
-  text-align:center;
-  color:var(--muted);
-  font-size:.95rem;
+/* ------------------------------
+   HEADER
+--------------------------------*/
+header {
+    width: 100%;
+    padding: 2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    background: #FFFFFF;
 }
 
-/* Responsive */
-@media (max-width:900px){
-  .hero{grid-template-columns:1fr}
-  .content{grid-template-columns:1fr}
-  .header-search input[type="search"]{min-width:120px}
+.logo {
+    font-family: 'Yeseva One', serif;
+    font-size: 2.2rem;
+    color: var(--accent-dark);
+    letter-spacing: 1px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text);
+    margin-left: 2rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--accent-dark);
+}
+
+/* ------------------------------
+   HERO SECTION
+--------------------------------*/
+.hero {
+    padding: 6rem 5%;
+    text-align: left;
+    max-width: 750px;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    font-family: 'Yeseva One', serif;
+    margin-bottom: 1rem;
+    color: var(--accent-dark);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    background: var(--accent);
+    color: #FFF;
+    padding: 0.9rem 1.8rem;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.btn:hover {
+    background: var(--accent-dark);
+}
+
+/* ------------------------------
+   GRID + CARDS
+--------------------------------*/
+.grid {
+    margin: 3rem auto;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    box-shadow: 0px 4px 14px var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 6px 18px var(--shadow);
+}
+
+.card h3 {
+    font-family: 'Yeseva One', serif;
+    color: var(--accent-dark);
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    font-size: 1rem;
+}
+
+/* ------------------------------
+   PAGE HEADERS
+--------------------------------*/
+.page-header {
+    padding: 4rem 5% 2rem;
+}
+
+.page-header h2 {
+    font-family: 'Yeseva One', serif;
+    font-size: 2.6rem;
+    color: var(--accent-dark);
+    margin-bottom: 0.5rem;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+}
+
+/* ------------------------------
+   FOOTER
+--------------------------------*/
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    margin-top: 4rem;
+    color: var(--text);
+    background: #FFFFFF;
 }
