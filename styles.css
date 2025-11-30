@@ -290,3 +290,103 @@ button:hover { background:#6e9e34; }
 .plant-card:hover, .seed-card:hover {
   transform: scale(1.05); /* pulse + hover pop */
 }
+
+/* Issues Directory */
+.issues-directory h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #3b5a30;
+}
+
+.issues-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 0 20px 50px 20px;
+}
+
+.issue-card {
+  background: #fff8e7; /* cream card */
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  animation: pulseCard 5s ease-in-out infinite; /* pulse effect */
+}
+
+.issue-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+}
+
+.issue-card img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  object-fit: cover;
+  animation: floatLeaf 6s ease-in-out infinite; /* leaf float effect */
+}
+
+/* Image Diagnosis Section */
+.image-diagnosis {
+  max-width: 600px;
+  margin: 0 auto 50px auto;
+  text-align: center;
+  padding: 30px 20px;
+  background: #fef5e0; /* soft cream variant */
+  border-radius: 20px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.image-diagnosis input[type="file"] {
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #c7d3b3;
+}
+
+.image-diagnosis button {
+  background: #88b04b;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.image-diagnosis button:hover {
+  background: #6e9e34;
+}
+
+.diagnosis-result {
+  margin-top: 25px;
+  background: #fff8e7;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.diagnosis-result img {
+  animation: floatLeaf 6s ease-in-out infinite;
+}
+
+/* Reuse animations from feature and plant cards */
+@keyframes floatLeaf {
+  0% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-5px) rotate(1deg); }
+  50% { transform: translateY(0px) rotate(0deg); }
+  75% { transform: translateY(-5px) rotate(-1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes pulseCard {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}

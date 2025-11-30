@@ -21,18 +21,71 @@
 
 <main>
 <h1>Plant Doctor</h1>
-<form id="plant-form">
-  <label>Plant Name:</label>
-  <input type="text" placeholder="Enter plant name" required>
-  <label>Problem Description:</label>
-  <textarea placeholder="Describe the issue" required></textarea>
-  <button type="submit">Submit</button>
-</form>
+
+<!-- Common Issues Directory -->
+<section class="issues-directory">
+<h2>Common Plant Issues</h2>
+<div class="issues-grid">
+  <div class="issue-card">
+    <img src="images/yellow-leaves.jpg" alt="Yellow Leaves">
+    <h3>Yellow Leaves</h3>
+    <p>Cause: Overwatering or nutrient deficiency. Solution: Check watering schedule and fertilize weekly.</p>
+  </div>
+  <div class="issue-card">
+    <img src="images/brown-tips.jpg" alt="Brown Leaf Tips">
+    <h3>Brown Leaf Tips</h3>
+    <p>Cause: Low humidity or too much fertilizer. Solution: Increase humidity and flush soil monthly.</p>
+  </div>
+  <div class="issue-card">
+    <img src="images/spotted-leaves.jpg" alt="Spotted Leaves">
+    <h3>Spotted Leaves</h3>
+    <p>Cause: Fungal infection or pests. Solution: Remove affected leaves and treat with fungicide.</p>
+  </div>
+</div>
+</section>
+
+<!-- Image Upload Diagnosis -->
+<section class="image-diagnosis">
+<h2>Upload Your Plant Photo</h2>
+<input type="file" id="plantImage" accept="image/*">
+<button id="diagnoseBtn">Diagnose Plant</button>
+
+<div id="diagnosisResult" class="diagnosis-result">
+  <!-- Matching result appears here -->
+</div>
+</section>
+
 </main>
 
 <footer>
 <p>&copy; 2025 Plant Hub. All rights reserved.</p>
 </footer>
-<script src="scripts.js"></script>
+
+<script>
+const examplePlants = [
+  { name: "Yellow Leaves", img: "images/yellow-leaves.jpg", solution: "Overwatering or nutrient deficiency. Check watering schedule and fertilize weekly." },
+  { name: "Brown Leaf Tips", img: "images/brown-tips.jpg", solution: "Low humidity or too much fertilizer. Increase humidity and flush soil monthly." },
+  { name: "Spotted Leaves", img: "images/spotted-leaves.jpg", solution: "Fungal infection or pests. Remove affected leaves and treat with fungicide." }
+];
+
+document.getElementById('diagnoseBtn').addEventListener('click', () => {
+  const input = document.getElementById('plantImage');
+  const resultDiv = document.getElementById('diagnosisResult');
+
+  if(input.files.length === 0){
+    alert("Please upload an image of your plant.");
+    return;
+  }
+
+  // For now, randomly select a match from the example list
+  const match = examplePlants[Math.floor(Math.random() * examplePlants.length)];
+
+  resultDiv.innerHTML = `
+    <h3>Possible Issue: ${match.name}</h3>
+    <img src="${match.img}" alt="${match.name}" style="width:200px; border-radius:15px; margin-bottom:10px;">
+    <p>Suggested Solution: ${match.solution}</p>
+  `;
+});
+</script>
 </body>
 </html>
