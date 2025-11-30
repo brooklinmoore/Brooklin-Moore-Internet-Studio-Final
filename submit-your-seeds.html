@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submit Your Seeds</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+<nav>
+<ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="plants.html">Plant Directory</a></li>
+  <li><a href="plant-doctor.html">Plant Doctor</a></li>
+  <li><a href="community.html">Community</a></li>
+  <li><a href="seed-exchange.html">Seed Exchange</a></li>
+</ul>
+</nav>
+</header>
+
+<main>
+<h1>Submit Your Seeds</h1>
+
+<form action="#" method="post" enctype="multipart/form-data" class="submit-seed-form">
+  <label for="plant-name">Plant Name:</label>
+  <input type="text" id="plant-name" name="plant-name" placeholder="Enter plant name" required>
+
+  <label for="seed-description">Seed Description:</label>
+  <textarea id="seed-description" name="seed-description" placeholder="Describe your seeds" required></textarea>
+
+  <label for="seed-image">Upload Seed Image:</label>
+  <input type="file" id="seed-image" name="seed-image" accept="image/*" required>
+
+  <button type="submit" class="trade-btn">Submit Seeds</button>
+</form>
+</main>
+
+<footer>
+<p>&copy; 2025 Plant Hub. All rights reserved.</p>
+</footer>
+</body>
+</html>

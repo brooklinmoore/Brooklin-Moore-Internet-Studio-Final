@@ -390,3 +390,37 @@ button:hover { background:#6e9e34; }
   50% { transform: scale(1.02); }
   100% { transform: scale(1); }
 }
+.trade-btn {
+  display: inline-block;
+  background: #88b04b;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  margin: 5px;
+}
+
+.trade-btn:hover {
+  background: #6e9e34;
+}
+
+.submit-seed-form {
+  max-width: 600px;
+  margin: 30px auto;
+  background: #fff8e7;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.submit-seed-form input[type="text"],
+.submit-seed-form textarea,
+.submit-seed-form input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 20px 0;
+  border-radius: 12px;
+  border: 1px solid #c7d3b3;
+}
