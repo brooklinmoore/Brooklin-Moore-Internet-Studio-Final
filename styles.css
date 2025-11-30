@@ -1,155 +1,200 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Movie Gallery</title>
-<style>
-    /* Earthy palette */
-    :root {
-        --bg: #f5f1eb;
-        --card-bg: #faf8f4;
-        --shadow: rgba(0,0,0,0.08);
-        --text: #3e3b33;
-        --accent: #c1a78a;
-        --accent-dark: #8a7660;
-        --radius: 22px;
-    }
+/* styles.css */
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Yeseva+One&display=swap');
 
-    body {
-        margin: 0;
-        font-family: "Inter", sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        padding: 40px;
-    }
+:root{
+  --bg:#f6fbf6;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#2f855a;
+  --accent-dark:#276749;
+  --max-width:1100px;
+  --radius:12px;
+}
 
-    h1 {
-        text-align: center;
-        font-size: 2.3rem;
-        font-weight: 600;
-        margin-bottom: 40px;
-        letter-spacing: -0.5px;
-        color: var(--accent-dark);
-    }
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Josefin Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background:linear-gradient(180deg,#f6fbf6 0%, #eef6ee 100%);
+  color:#0f172a;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
 
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 28px;
-        padding: 0 20px;
-    }
+/* Layout */
+.container{
+  max-width:var(--max-width);
+  margin:2rem auto;
+  padding:0 1rem;
+}
 
-    .card {
-        background: var(--card-bg);
-        padding: 22px;
-        border-radius: var(--radius);
-        box-shadow: 0px 4px 14px var(--shadow);
-        transition: transform .25s ease, box-shadow .25s ease;
-        border: 1px solid rgba(0,0,0,0.05);
-    }
+/* Header / Nav */
+.site-header{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:1rem 1.25rem;
+  box-shadow:0 6px 18px rgba(15,23,42,0.06);
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  position:sticky;
+  top:1rem;
+  z-index:50;
+}
+.site-title{
+  font-family: 'Yeseva One', serif;
+  font-size:1.25rem;
+  color:var(--accent-dark);
+  margin:0;
+}
+.brand-sub{
+  color:var(--muted);
+  font-size:.85rem;
+  margin-left:.25rem;
+}
+.primary-nav{
+  margin-left:auto;
+  display:flex;
+  gap:.5rem;
+  align-items:center;
+}
+.primary-nav a{
+  text-decoration:none;
+  color:var(--muted);
+  padding:.45rem .65rem;
+  border-radius:8px;
+  font-weight:600;
+}
+.primary-nav a:hover{background:#eef3ef;color:var(--accent-dark)}
 
-    .card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0px 10px 22px rgba(0,0,0,0.12);
-    }
+/* Search bar in header */
+.header-search{
+  display:flex;
+  gap:.5rem;
+  align-items:center;
+  margin-left:1rem;
+}
+.header-search input[type="search"]{
+  border:1px solid #e6edf0;
+  padding:.5rem .75rem;
+  border-radius:8px;
+  min-width:220px;
+  background:#fbfdfb;
+  outline:none;
+}
+.header-search button{
+  background:var(--accent);
+  color:white;
+  border:none;
+  padding:.55rem .75rem;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+}
+.header-search button:hover{background:var(--accent-dark)}
 
-    .title {
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin-bottom: 8px;
-        color: var(--accent-dark);
-    }
+/* Hero */
+.hero{
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:1.25rem;
+  align-items:start;
+  margin-top:1.25rem;
+}
+.hero-card{
+  background:var(--card);
+  padding:1.5rem;
+  border-radius:var(--radius);
+  box-shadow:0 6px 18px rgba(15,23,42,0.06);
+}
+.hero h1{
+  font-family:'Yeseva One';
+  font-size:2rem;
+  margin:0 0 .4rem;
+}
+.lead{
+  color:var(--muted);
+  margin:0 0 1rem;
+}
 
-    .desc {
-        font-size: 0.92rem;
-        line-height: 1.45;
-        opacity: 0.85;
-    }
+/* Featured grid */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1rem;
+  margin-top:1rem;
+}
+.card{
+  background:var(--card);
+  padding:1rem;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(15,23,42,0.04);
+}
+.card img{width:100%;height:140px;object-fit:cover;border-radius:8px}
+.card h3{margin:.6rem 0 .25rem;font-size:1rem}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
 
-    /* Subtle organic highlight strip */
-    .card::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: var(--radius);
-        background: linear-gradient(
-            135deg,
-            rgba(193, 167, 138, 0.13),
-            rgba(250, 248, 244, 0)
-        );
-        pointer-events: none;
-    }
+/* Two-column content */
+.content{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:1rem;
+  margin-top:1rem;
+}
+main .panel{
+  background:var(--card);
+  padding:1rem;
+  border-radius:12px;
+}
+aside .panel{padding:.75rem}
 
-</style>
-</head>
-<body>
+/* Plant card specifics */
+.plant-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1rem;
+}
+.plant-card{display:flex;gap:.75rem;align-items:flex-start}
+.plant-card img{width:110px;height:80px;object-fit:cover;border-radius:8px}
+.plant-meta{flex:1}
+.plant-meta h4{margin:.1rem 0 .3rem}
+.tag{display:inline-block;padding:.25rem .5rem;border-radius:8px;background:#eef8ef;color:var(--accent);font-weight:600;font-size:.8rem;margin-right:.25rem}
 
-<h1>Movie Collection</h1>
+/* Article styles */
+.article-hero{height:240px;border-radius:8px;object-fit:cover;width:100%}
+.article-body{white-space:normal}
 
-<div class="grid">
+/* Form styles */
+form{display:block}
+input[type="text"], input[type="search"], textarea, select{
+  width:100%;
+  padding:.6rem .7rem;
+  border-radius:8px;
+  border:1px solid #e8eef0;
+  background:#fff;
+  font-family:inherit;
+}
+textarea{min-height:100px;resize:vertical}
+label{display:block;margin:.4rem 0 .25rem;font-weight:600;color:var(--muted);font-size:.9rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.btn{background:var(--accent);color:#fff;padding:.6rem .85rem;border-radius:8px;border:none;cursor:pointer;font-weight:700}
+.btn.secondary{background:#f3f8f3;color:var(--accent-dark);border:1px solid #e1efe1}
 
-    <div class="card">
-        <div class="title">Memento</div>
-        <div class="desc">A man with short-term memory loss pieces together the truth through tattooed notes.</div>
-    </div>
+/* Footer */
+.site-footer{
+  margin-top:2rem;
+  padding:1.25rem;
+  text-align:center;
+  color:var(--muted);
+  font-size:.95rem;
+}
 
-    <div class="card">
-        <div class="title">The Princess and the Frog</div>
-        <div class="desc">A New Orleans waitress dreams big and finds magic along the way.</div>
-    </div>
-
-    <div class="card">
-        <div class="title">Harry Potter and the Sorcerer’s Stone</div>
-        <div class="desc">A boy discovers he’s a wizard and enters a world of magic.</div>
-    </div>
-
-    <div class="card">
-        <div class="title">Monster High: Boo York</div>
-        <div class="desc">The ghouls head to Boo York for a cosmic adventure.</div>
-    </div>
-
-    <div class="card">
-        <div class="title">Fight Club</div>
-        <div class="desc">An underground fighting ring transforms into something far larger.</div>
-    </div>
-
-    <div class="card">
-        <div class="title">Interstellar</div>
-        <div class="desc">Astronauts travel through a wormhole in search of a new home for humanity.</div>
-    </div>
-
-    <div class="card">
-        <div class="title">The Prince of Egypt</div>
-        <div class="desc">The epic story of Moses brought to life with powerful music and animation.</div>
-    </div>
-
-    <div class="card">
-        <div class="title">Knives Out</div>
-        <div class="desc">A twisted family mystery unraveled by a clever detective.</div>
-    </div>
-
-    <div class="card">
-        <div class="title">Rio</div>
-        <div class="desc">A domesticated macaw finds adventure and love in Brazil.</div>
-    </div>
-
-    <div class="card">
-        <div class="title">The Greatest Showman</div>
-        <div class="desc">The rise of P.T. Barnum, full of music, spectacle, and big dreams.</div>
-    </div>
-
-    <div class="card">
-        <div class="title">Uncle Drew</div>
-        <div class="desc">A streetball legend returns with a stacked team of old-school players.</div>
-    </div>
-
-    <div class="card">
-        <div class="title">Mulan</div>
-        <div class="desc">A young woman disguises herself to protect her family and country.</div>
-    </div>
-
-</div>
-
-</body>
-</html>
+/* Responsive */
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .content{grid-template-columns:1fr}
+  .header-search input[type="search"]{min-width:120px}
+}
