@@ -1,149 +1,155 @@
-/* GOOGLE FONTS */
-@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&family=Josefin+Sans:wght@300;400;600&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Movie Gallery</title>
+<style>
+    /* Earthy palette */
+    :root {
+        --bg: #f5f1eb;
+        --card-bg: #faf8f4;
+        --shadow: rgba(0,0,0,0.08);
+        --text: #3e3b33;
+        --accent: #c1a78a;
+        --accent-dark: #8a7660;
+        --radius: 22px;
+    }
 
-:root {
-    --bg-dark: #0f1f17;
-    --bg-card: rgba(255,255,255,0.12);
-    --accent: #77d6a5;
-    --mint: #a8ffda;
-    --text-light: #f4fff8;
-    --shadow: rgba(0,0,0,0.45);
-}
+    body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        padding: 40px;
+    }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    h1 {
+        text-align: center;
+        font-size: 2.3rem;
+        font-weight: 600;
+        margin-bottom: 40px;
+        letter-spacing: -0.5px;
+        color: var(--accent-dark);
+    }
 
-body {
-    font-family: "Josefin Sans", sans-serif;
-    background: linear-gradient(135deg, #0f1f17 0%, #1d3a2f 100%);
-    color: var(--text-light);
-    line-height: 1.7;
-    padding-bottom: 50px;
-}
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 28px;
+        padding: 0 20px;
+    }
 
-/* -------------------- HEADER --------------------- */
+    .card {
+        background: var(--card-bg);
+        padding: 22px;
+        border-radius: var(--radius);
+        box-shadow: 0px 4px 14px var(--shadow);
+        transition: transform .25s ease, box-shadow .25s ease;
+        border: 1px solid rgba(0,0,0,0.05);
+    }
 
-header {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.12);
-    padding: 20px 40px;
-    box-shadow: 0 4px 25px var(--shadow);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
+    .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0px 10px 22px rgba(0,0,0,0.12);
+    }
 
-h1 {
-    font-family: "Yeseva One", serif;
-    font-size: 42px;
-    color: var(--mint);
-    text-shadow: 0 0 15px rgba(168,255,218,0.5);
-}
+    .title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: var(--accent-dark);
+    }
 
-nav ul {
-    display: flex;
-    list-style: none;
-    margin-top: 10px;
-    gap: 25px;
-}
+    .desc {
+        font-size: 0.92rem;
+        line-height: 1.45;
+        opacity: 0.85;
+    }
 
-nav a {
-    color: var(--text-light);
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 600;
-    position: relative;
-    padding: 6px 0;
-    transition: 0.3s ease;
-}
+    /* Subtle organic highlight strip */
+    .card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: var(--radius);
+        background: linear-gradient(
+            135deg,
+            rgba(193, 167, 138, 0.13),
+            rgba(250, 248, 244, 0)
+        );
+        pointer-events: none;
+    }
 
-nav a::after {
-    content: "";
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    height: 3px;
-    width: 0;
-    background: var(--mint);
-    border-radius: 5px;
-    box-shadow: 0 0 12px var(--mint);
-    transition: width 0.3s ease;
-}
+</style>
+</head>
+<body>
 
-nav a:hover::after,
-nav a.active::after {
-    width: 100%;
-}
+<h1>Movie Collection</h1>
 
-/* -------------------- PAGE LAYOUT --------------------- */
+<div class="grid">
 
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: 40px auto;
-}
+    <div class="card">
+        <div class="title">Memento</div>
+        <div class="desc">A man with short-term memory loss pieces together the truth through tattooed notes.</div>
+    </div>
 
-/* Glass glowing cards */
-.card {
-    background: var(--bg-card);
-    padding: 25px;
-    border-radius: 18px;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 8px 30px var(--shadow);
-    border: 1px solid rgba(255,255,255,0.18);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
+    <div class="card">
+        <div class="title">The Princess and the Frog</div>
+        <div class="desc">A New Orleans waitress dreams big and finds magic along the way.</div>
+    </div>
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.55);
-}
+    <div class="card">
+        <div class="title">Harry Potter and the Sorcerer’s Stone</div>
+        <div class="desc">A boy discovers he’s a wizard and enters a world of magic.</div>
+    </div>
 
-/* -------------------- SEED CARDS --------------------- */
+    <div class="card">
+        <div class="title">Monster High: Boo York</div>
+        <div class="desc">The ghouls head to Boo York for a cosmic adventure.</div>
+    </div>
 
-.seed-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
-}
+    <div class="card">
+        <div class="title">Fight Club</div>
+        <div class="desc">An underground fighting ring transforms into something far larger.</div>
+    </div>
 
-.seed-card h3 {
-    font-family: "Yeseva One", serif;
-    margin-bottom: 10px;
-    color: var(--mint);
-}
+    <div class="card">
+        <div class="title">Interstellar</div>
+        <div class="desc">Astronauts travel through a wormhole in search of a new home for humanity.</div>
+    </div>
 
-/* -------------------- BUTTONS --------------------- */
+    <div class="card">
+        <div class="title">The Prince of Egypt</div>
+        <div class="desc">The epic story of Moses brought to life with powerful music and animation.</div>
+    </div>
 
-button, .btn {
-    display: inline-block;
-    padding: 12px 20px;
-    background: var(--accent);
-    color: #0f1f17;
-    border-radius: 10px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: 0.25s;
-    text-decoration: none;
-    box-shadow: 0 0 12px rgba(119, 214, 165, 0.6);
-}
+    <div class="card">
+        <div class="title">Knives Out</div>
+        <div class="desc">A twisted family mystery unraveled by a clever detective.</div>
+    </div>
 
-button:hover, .btn:hover {
-    background: var(--mint);
-    box-shadow: 0 0 20px rgba(168,255,218,0.9);
-}
+    <div class="card">
+        <div class="title">Rio</div>
+        <div class="desc">A domesticated macaw finds adventure and love in Brazil.</div>
+    </div>
 
-/* -------------------- FOOTER --------------------- */
+    <div class="card">
+        <div class="title">The Greatest Showman</div>
+        <div class="desc">The rise of P.T. Barnum, full of music, spectacle, and big dreams.</div>
+    </div>
 
-footer {
-    text-align: center;
-    margin-top: 60px;
-    color: var(--accent);
-    opacity: 0.8;
-}
+    <div class="card">
+        <div class="title">Uncle Drew</div>
+        <div class="desc">A streetball legend returns with a stacked team of old-school players.</div>
+    </div>
+
+    <div class="card">
+        <div class="title">Mulan</div>
+        <div class="desc">A young woman disguises herself to protect her family and country.</div>
+    </div>
+
+</div>
+
+</body>
+</html>
