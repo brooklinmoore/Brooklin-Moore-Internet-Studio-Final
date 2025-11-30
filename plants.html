@@ -1,93 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Staying Rooted — Plants</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plant Directory</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header container">
-    <h1 class="site-title">Rooted</h1>
-    <nav class="primary-nav" aria-label="Primary">
-      <a href="index.html">Home</a>
-      <a href="plants.html" aria-current="page">Plants</a>
-      <a href="articles.html">Guides</a>
-      <a href="videos.html">Videos</a>
-      <a href="seed-exchange.html">Seed Exchange</a>
-      <a href="about.html">About</a>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="plants.html">Plant Directory</a></li>
+        <li><a href="plant-doctor.html">Plant Doctor</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="seed-exchange.html">Seed Exchange</a></li>
+      </ul>
     </nav>
-
-    <div class="header-search" role="search">
-      <input type="search" placeholder="Find a plant (e.g., pothos, fiddle leaf)"/>
-      <button>Search</button>
-    </div>
   </header>
 
-  <main class="container">
-    <section class="hero-card" style="margin-top:1rem">
-      <h2 style="font-family:'Yeseva One'">Plant Directory</h2>
-      <p class="lead">Filter by light, difficulty, and tags.</p>
-
-      <form aria-label="Filters" style="margin-top:.8rem">
-        <div class="form-row">
-          <div>
-            <label for="light">Light</label>
-            <select id="light" name="light">
-              <option value="">Any</option>
-              <option>Low</option>
-              <option>Indirect</option>
-              <option>Bright</option>
-            </select>
-          </div>
-          <div>
-            <label for="difficulty">Difficulty</label>
-            <select id="difficulty" name="difficulty">
-              <option value="">Any</option>
-              <option>Easy</option>
-              <option>Medium</option>
-              <option>Advanced</option>
-            </select>
-          </div>
-        </div>
-      </form>
-    </section>
-
-    <section class="container" style="margin-top:1rem">
-      <div class="plant-grid">
-        <!-- Repeat plant cards (link to plant profile) -->
-        <article class="card plant-card">
-          <img src="images/ficus.jpg" alt="Ficus plant">
-          <div class="plant-meta">
-            <h4><a href="plant.html">Fiddle Leaf Fig</a></h4>
-            <span class="tag">Bright</span>
-            <p class="muted">Fussy but stunning focal plant.</p>
-          </div>
-        </article>
-
-        <article class="card plant-card">
-          <img src="images/pothos.jpg" alt="Pothos">
-          <div class="plant-meta">
-            <h4><a href="plant.html">Pothos</a></h4>
-            <span class="tag">Low</span>
-            <p class="muted">Beginner-friendly trailing vine.</p>
-          </div>
-        </article>
-
-        <article class="card plant-card">
-          <img src="images/aloe.jpg" alt="Aloe Vera">
-          <div class="plant-meta">
-            <h4><a href="plant.html">Aloe Vera</a></h4>
-            <span class="tag">Bright</span>
-            <p class="muted">Succulent with medicinal uses.</p>
-          </div>
-        </article>
+  <main>
+    <h1>Plant Directory</h1>
+    <div class="plants-grid">
+      <div class="plant-card">
+        <img src="images/plant1.jpg" alt="Plant 1">
+        <h3>Plant Name 1</h3>
+        <p>Care info for Plant 1...</p>
       </div>
-    </section>
-
-    <footer class="site-footer">© <span id="year2"></span> Rooted</footer>
+      <div class="plant-card">
+        <img src="images/plant2.jpg" alt="Plant 2">
+        <h3>Plant Name 2</h3>
+        <p>Care info for Plant 2...</p>
+      </div>
+    </div>
   </main>
 
-  <script>document.getElementById('year2').textContent=new Date().getFullYear();</script>
+  <footer>
+    <p>&copy; 2025 Plant Hub. All rights reserved.</p>
+  </footer>
 </body>
 </html>

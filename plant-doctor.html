@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plant Hub</title>
+  <title>Plant Doctor</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,17 +20,14 @@
   </header>
 
   <main>
-    <section class="hero">
-      <h1>Welcome to Plant Hub</h1>
-      <p>Your guide to plants, care, and community.</p>
-    </section>
-
-    <section class="features">
-      <div class="feature-card">Plant Directory</div>
-      <div class="feature-card">Plant Doctor</div>
-      <div class="feature-card">Community</div>
-      <div class="feature-card">Seed Exchange</div>
-    </section>
+    <h1>Plant Doctor</h1>
+    <form id="plant-form">
+      <label>Plant Name:</label>
+      <input type="text" required>
+      <label>Problem:</label>
+      <textarea required></textarea>
+      <button type="submit">Submit</button>
+    </form>
   </main>
 
   <footer>
