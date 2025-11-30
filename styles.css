@@ -1,8 +1,12 @@
-/* Base Styles */
+/* ========================
+   Base Styles
+======================== */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;500&display=swap');
+
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #fdf6e3; /* soft cream */
+  font-family: 'Roboto', sans-serif;
+  background: #fff8e7; /* soft cream */
   color: #2c3e21; /* deep earthy green */
 }
 
@@ -11,7 +15,9 @@ a {
   color: inherit;
 }
 
-/* Header & Navigation */
+/* ========================
+   Header & Navigation
+======================== */
 header {
   background: #3b5a30; /* deep plant green */
   padding: 15px 0;
@@ -31,7 +37,7 @@ nav ul {
 }
 
 nav a {
-  color: #fdf6e3;
+  color: #fffbe6;
   font-weight: 600;
   font-size: 1.1rem;
   padding: 5px 10px;
@@ -44,29 +50,31 @@ nav a:hover {
   border-radius: 8px;
 }
 
-/* Hero Section */
+/* ========================
+   Hero Section
+======================== */
 .hero {
   text-align: center;
   padding: 120px 20px;
   position: relative;
-  background: url('images/hero-placeholder.jpg') center/cover no-repeat; /* hero image */
-  color: #fffbe6;
+  background: url('images/hero-placeholder.jpg') center/cover no-repeat;
 }
 
 .hero::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(60, 90, 48, 0.5); /* overlay for readability */
-  z-index: 0;
+  background: rgba(60,90,48,0.5);
 }
 
 .hero h1, .hero p {
   position: relative;
   z-index: 1;
+  color: #fffbe6;
 }
 
 .hero h1 {
+  font-family: 'Merriweather', serif;
   font-size: 3rem;
   margin-bottom: 15px;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
@@ -77,105 +85,101 @@ nav a:hover {
   opacity: 0.95;
 }
 
-/* Features Section */
+/* ========================
+   Features Section
+======================== */
 .features {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 25px;
+  justify-content: center;
   padding: 50px 20px;
 }
 
 .feature-card {
-  background: #f0edd9; /* soft cream card */
-  padding: 50px 30px;
+  position: relative;
+  flex: 1 1 250px;
+  height: 200px;
   border-radius: 20px;
-  text-align: center;
-  flex: 1 1 220px;
-  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-  transition: all 0.3s ease;
-  position: relative;
   overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+  transition: 0.3s;
 }
 
-.feature-card::after {
-  content: '';
+.feature-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+  animation: floatLeaf 6s ease-in-out infinite;
+}
+
+.feature-card:hover img {
+  transform: scale(1.12);
+}
+
+.feature-text {
   position: absolute;
-  width: 120%;
-  height: 120%;
-  background: rgba(76, 122, 42, 0.15);
-  transform: rotate(45deg);
-  top: -10%;
-  left: -10%;
-  z-index: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  width: 100%;
+  padding: 15px;
+  text-align: center;
 }
 
-.feature-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.25);
-}
-
-.feature-card h3 {
-  position: relative;
-  z-index: 1;
-}
-
-/* Grids (Plants, Articles, Videos, Seeds) */
-.plants-grid, .articles-grid, .videos-grid, .seed-grid {
+/* ========================
+   Grids & Cards
+======================== */
+.plants-grid, .articles-grid, .videos-grid, .seed-grid, .issues-grid {
   display: grid;
   gap: 25px;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   padding: 40px 20px;
 }
 
-/* Cards */
-.card, .video-card, .plant-card, .seed-card {
-  background: #f5f3e8; /* cream card */
+.plant-card, .card, .video-card, .seed-card, .issue-card {
+  background: #fff8e7;
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
   position: relative;
+  animation: pulseCard 5s ease-in-out infinite;
 }
 
-.card:hover, .video-card:hover, .plant-card:hover, .seed-card:hover {
+.plant-card:hover, .card:hover, .video-card:hover, .seed-card:hover, .issue-card:hover {
   transform: translateY(-8px) scale(1.03);
   box-shadow: 0 12px 20px rgba(0,0,0,0.2);
 }
 
-/* Images & Videos */
-img, video {
-  width: 100%;
-  border-radius: 15px;
-  margin-bottom: 15px;
-  object-fit: cover;
-}
-
-/* Cards content */
-.card h3, .video-card h3, .plant-card h3, .seed-card h3 {
+.card h3, .video-card h3, .plant-card h3, .seed-card h3, .issue-card h3 {
   margin: 0 0 10px 0;
-  color: #3b5a30; /* deep plant green */
+  color: #3b5a30;
+  font-family: 'Merriweather', serif;
 }
 
-.card p, .video-card p, .plant-card p, .seed-card p {
+.card p, .video-card p, .plant-card p, .seed-card p, .issue-card p {
   color: #53634f;
   font-size: 0.95rem;
   line-height: 1.4;
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  background: #3b5a30;
-  color: #fdf6e3;
-  padding: 30px 0;
-  margin-top: 40px;
-  font-size: 0.95rem;
+.seed-image, .issue-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 10px;
 }
 
-/* Buttons & Forms */
-button {
+/* ========================
+   Buttons & Forms
+======================== */
+button, .trade-btn {
+  display: inline-block;
   background: #88b04b;
   color: white;
   border: none;
@@ -183,10 +187,12 @@ button {
   border-radius: 12px;
   cursor: pointer;
   font-weight: 600;
-  transition: background 0.3s ease;
+  transition: 0.3s;
+  margin: 5px;
+  text-decoration: none;
 }
 
-button:hover {
+button:hover, .trade-btn:hover {
   background: #6e9e34;
 }
 
@@ -200,212 +206,6 @@ input, textarea {
   font-family: inherit;
 }
 
-/* Animations */
-@keyframes floatUp {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
-  100% { transform: translateY(0px); }
-}
-
-.feature-card:hover {
-  animation: floatUp 0.5s ease-in-out;
-}
-
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #fff8e7; /* soft cream */
-  color: #2c3e21;
-}
-
-a { text-decoration: none; color: inherit; }
-
-header { background: #3b5a30; padding: 15px 0; position: sticky; top: 0; z-index:10; }
-nav ul { list-style: none; display: flex; justify-content: center; gap:25px; margin:0; padding:0; }
-nav a { color: #fffbe6; font-weight:600; padding:5px 10px; transition:0.3s; }
-nav a:hover { color:#d4f4dd; background:rgba(255,255,255,0.1); border-radius:8px; }
-
-.hero {
-  text-align:center;
-  padding:120px 20px;
-  position:relative;
-  background: url('images/hero-placeholder.jpg') center/cover no-repeat;
-}
-.hero::before {
-  content:""; position:absolute; top:0; left:0; right:0; bottom:0;
-  background: rgba(60,90,48,0.5);
-}
-.hero h1, .hero p { position:relative; z-index:1; color:#fffbe6; }
-.hero h1 { font-size:3rem; margin-bottom:15px; text-shadow:1px 1px 4px rgba(0,0,0,0.4);}
-.hero p { font-size:1.2rem; opacity:0.95; }
-
-.features { display:flex; flex-wrap:wrap; gap:25px; justify-content:center; padding:50px 20px; }
-.feature-card { position:relative; flex:1 1 250px; height:200px; border-radius:20px; overflow:hidden; cursor:pointer; box-shadow:0 8px 15px rgba(0,0,0,0.15); transition:0.3s; }
-.feature-card img { width:100%; height:100%; object-fit:cover; transition:0.5s; }
-.feature-card:hover img { transform: scale(1.1); }
-.feature-text { position:absolute; bottom:0; background:rgba(0,0,0,0.5); color:#fff; width:100%; padding:15px; text-align:center; }
-
-.plants-grid, .articles-grid, .videos-grid, .seed-grid { display:grid; gap:25px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); padding:40px 20px; }
-.plant-card, .card, .video-card, .seed-card { background:#fffbe6; padding:20px; border-radius:20px; box-shadow:0 6px 12px rgba(0,0,0,0.1); transition:0.3s; overflow:hidden; }
-.plant-card:hover, .card:hover, .video-card:hover, .seed-card:hover { transform:translateY(-8px) scale(1.03); box-shadow:0 12px 20px rgba(0,0,0,0.2); }
-img, video { width:100%; border-radius:15px; margin-bottom:15px; object-fit:cover; }
-.card h3, .video-card h3, .plant-card h3, .seed-card h3 { margin:0 0 10px 0; color:#3b5a30; }
-.card p, .video-card p, .plant-card p, .seed-card p { color:#53634f; font-size:0.95rem; line-height:1.4; }
-
-button { background:#88b04b; color:white; border:none; padding:10px 25px; border-radius:12px; cursor:pointer; font-weight:600; transition:0.3s; margin:5px; }
-button:hover { background:#6e9e34; }
-
-.seed-actions { display:flex; justify-content:center; gap:20px; padding:20px; }
-
-/* Leaf Float Animation for feature cards */
-@keyframes floatLeaf {
-  0% { transform: translateY(0px) rotate(0deg); }
-  25% { transform: translateY(-5px) rotate(1deg); }
-  50% { transform: translateY(0px) rotate(0deg); }
-  75% { transform: translateY(-5px) rotate(-1deg); }
-  100% { transform: translateY(0px) rotate(0deg); }
-}
-
-/* Pulse animation for plant/seed cards */
-@keyframes pulseCard {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.02); }
-  100% { transform: scale(1); }
-}
-
-/* Apply animations */
-.feature-card img {
-  animation: floatLeaf 6s ease-in-out infinite;
-}
-
-.plant-card, .seed-card {
-  animation: pulseCard 5s ease-in-out infinite;
-}
-
-/* Slight hover boost on animation */
-.feature-card:hover img {
-  transform: scale(1.12); /* float + zoom on hover */
-}
-
-.plant-card:hover, .seed-card:hover {
-  transform: scale(1.05); /* pulse + hover pop */
-}
-
-/* Issues Directory */
-.issues-directory h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #3b5a30;
-}
-
-.issues-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  padding: 0 20px 50px 20px;
-}
-
-.issue-card {
-  background: #fff8e7; /* cream card */
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden;
-  position: relative;
-  animation: pulseCard 5s ease-in-out infinite; /* pulse effect */
-}
-
-.issue-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.2);
-}
-
-.issue-card img {
-  width: 100%;
-  border-radius: 15px;
-  margin-bottom: 15px;
-  object-fit: cover;
-  animation: floatLeaf 6s ease-in-out infinite; /* leaf float effect */
-}
-
-/* Image Diagnosis Section */
-.image-diagnosis {
-  max-width: 600px;
-  margin: 0 auto 50px auto;
-  text-align: center;
-  padding: 30px 20px;
-  background: #fef5e0; /* soft cream variant */
-  border-radius: 20px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-}
-
-.image-diagnosis input[type="file"] {
-  margin: 15px 0;
-  padding: 10px;
-  border-radius: 12px;
-  border: 1px solid #c7d3b3;
-}
-
-.image-diagnosis button {
-  background: #88b04b;
-  color: white;
-  border: none;
-  padding: 12px 30px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.image-diagnosis button:hover {
-  background: #6e9e34;
-}
-
-.diagnosis-result {
-  margin-top: 25px;
-  background: #fff8e7;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-.diagnosis-result img {
-  animation: floatLeaf 6s ease-in-out infinite;
-}
-
-/* Reuse animations from feature and plant cards */
-@keyframes floatLeaf {
-  0% { transform: translateY(0px) rotate(0deg); }
-  25% { transform: translateY(-5px) rotate(1deg); }
-  50% { transform: translateY(0px) rotate(0deg); }
-  75% { transform: translateY(-5px) rotate(-1deg); }
-  100% { transform: translateY(0px) rotate(0deg); }
-}
-
-@keyframes pulseCard {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.02); }
-  100% { transform: scale(1); }
-}
-.trade-btn {
-  display: inline-block;
-  background: #88b04b;
-  color: white;
-  padding: 10px 25px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-  margin: 5px;
-}
-
-.trade-btn:hover {
-  background: #6e9e34;
-}
-
 .submit-seed-form {
   max-width: 600px;
   margin: 30px auto;
@@ -415,12 +215,38 @@ button:hover { background:#6e9e34; }
   box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
 
-.submit-seed-form input[type="text"],
-.submit-seed-form textarea,
-.submit-seed-form input[type="file"] {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0 20px 0;
-  border-radius: 12px;
-  border: 1px solid #c7d3b3;
+.seed-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* ========================
+   Animations
+======================== */
+@keyframes floatLeaf {
+  0% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-5px) rotate(1deg); }
+  50% { transform: translateY(0px) rotate(0deg); }
+  75% { transform: translateY(-5px) rotate(-1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes pulseCard {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+/* ========================
+   Footer
+======================== */
+footer {
+  text-align: center;
+  background: #3b5a30;
+  color: #fdf6e3;
+  padding: 30px 0;
+  margin-top: 40px;
+  font-size: 0.95rem;
 }
