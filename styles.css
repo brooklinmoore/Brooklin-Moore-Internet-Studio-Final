@@ -250,3 +250,12 @@ footer {
   margin-top: 40px;
   font-size: 0.95rem;
 }
+
+.plant-card img {
+  width: 120px;       /* same width for all */
+  height: 120px;      /* same height for all */
+  object-fit: cover;  /* crops images cleanly */
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto 10px auto; /* centers the image */
+}
