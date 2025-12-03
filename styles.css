@@ -260,30 +260,38 @@ footer {
   margin: 0 auto 10px auto; /* centers the image */
 }
 
-.medium-img {
-  width: 220px;   /* small-medium */
-  height: auto;
-  border-radius: 10px;
-  display: block;
-  margin-bottom: 10px;
-}
-
-.articles-grid, .videos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.card, .video-card {
-  background: #ffffff;
+/* Center cards and their content */
+.card,
+.video-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   padding: 15px;
   border-radius: 12px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-  text-align: center;
 }
 
+/* Image sizing */
+.medium-img {
+  width: 100%;          /* fills the card */
+  max-width: 300px;     /* small/medium size */
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Video sizing */
 .video-card iframe {
   width: 100%;
-  height: 180px;
+  height: 250px;
   border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Grid layout */
+.articles-grid,
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
 }
