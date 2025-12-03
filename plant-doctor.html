@@ -61,31 +61,5 @@
 <p>&copy; 2025 Plant Hub. All rights reserved.</p>
 </footer>
 
-<script>
-const examplePlants = [
-  { name: "Yellow Leaves", img: "images/yellow-leaves.jpg", solution: "Overwatering or nutrient deficiency. Check watering schedule and fertilize weekly." },
-  { name: "Brown Leaf Tips", img: "images/brown-tips.jpg", solution: "Low humidity or too much fertilizer. Increase humidity and flush soil monthly." },
-  { name: "Spotted Leaves", img: "images/spotted-leaves.jpg", solution: "Fungal infection or pests. Remove affected leaves and treat with fungicide." }
-];
-
-document.getElementById('diagnoseBtn').addEventListener('click', () => {
-  const input = document.getElementById('plantImage');
-  const resultDiv = document.getElementById('diagnosisResult');
-
-  if(input.files.length === 0){
-    alert("Please upload an image of your plant.");
-    return;
-  }
-
-  // For now, randomly select a match from the example list
-  const match = examplePlants[Math.floor(Math.random() * examplePlants.length)];
-
-  resultDiv.innerHTML = `
-    <h3>Possible Issue: ${match.name}</h3>
-    <img src="${match.img}" alt="${match.name}" style="width:200px; border-radius:15px; margin-bottom:10px;">
-    <p>Suggested Solution: ${match.solution}</p>
-  `;
-});
-</script>
 </body>
 </html>
