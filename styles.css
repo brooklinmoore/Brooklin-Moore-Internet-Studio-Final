@@ -16,7 +16,7 @@ body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   background: #fff8e7;
-  color: #1e2b15;
+  color: rgb(48, 68, 35);
 }
 
 a {
@@ -28,7 +28,7 @@ a {
    Header & Navigation
 ======================== */
 header.site-header {
-  background: #3b5a30;
+  background: #1f3018;
   padding: 15px 0;
   position: sticky;
   top: 0;
