@@ -219,7 +219,7 @@ footer {
 .hero {
   text-align: center;
   padding: 100px 20px;
-  background: url('images/hero-placeholder.jpg') center/cover no-repeat;
+  background: url('img/luke.png') center/cover no-repeat;
   color: #fffbe6;
 }
 
