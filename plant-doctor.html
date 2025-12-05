@@ -7,22 +7,21 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
-<nav>
-<ul>
-  <li><a href="index.html">Home</a></li>
-  <li><a href="plants.html">Plant Directory</a></li>
-  <li><a href="plant-doctor.html">Plant Doctor</a></li>
-  <li><a href="community.html">Community</a></li>
-  <li><a href="seed-exchange.html">Seed Exchange</a></li>
-</ul>
-</nav>
+
+<header class="site-header">
+  <h1 class="site-title">Rooted</h1>
+  <nav class="primary-nav" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="plants.html">Plant Directory</a>
+    <a href="plant-doctor.html" aria-current="page">Plant Doctor</a>
+    <a href="community.html">Community</a>
+    <a href="seed-exchange.html">Seed Exchange</a>
+  </nav>
 </header>
 
 <main>
 <h1>Plant Doctor</h1>
 
-<!-- Common Issues Directory -->
 <section class="issues-directory">
 <h2>Common Plant Issues</h2>
 <div class="issues-grid">
@@ -44,22 +43,17 @@
 </div>
 </section>
 
-<!-- Image Upload Diagnosis -->
 <section class="image-diagnosis">
 <h2>Upload Your Plant Photo</h2>
 <input type="file" id="plantImage" accept="image/*">
 <button id="diagnoseBtn">Diagnose Plant</button>
 
-<div id="diagnosisResult" class="diagnosis-result">
-  <!-- Matching result appears here -->
-</div>
+<div id="diagnosisResult" class="diagnosis-result"></div>
 </section>
-
 </main>
 
 <footer>
-<p>&copy; 2025 Plant Hub. All rights reserved.</p>
+<p>&copy; 2025 Rooted</p>
 </footer>
-
 </body>
 </html>

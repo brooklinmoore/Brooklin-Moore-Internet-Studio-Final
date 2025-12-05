@@ -1,70 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Community</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="plants.html">Plant Directory</a></li>
-      <li><a href="plant-doctor.html">Plant Doctor</a></li>
-      <li><a href="community.html">Community</a></li>
-      <li><a href="seed-exchange.html">Seed Exchange</a></li>
-    </ul>
+
+<header class="site-header">
+  <h1 class="site-title">Rooted</h1>
+  <nav class="primary-nav" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="plants.html">Plant Directory</a>
+    <a href="plant-doctor.html">Plant Doctor</a>
+    <a href="community.html" aria-current="page">Community</a>
+    <a href="seed-exchange.html">Seed Exchange</a>
   </nav>
 </header>
 
 <main>
-  <h1>Community</h1>
+<h1>Community</h1>
 
-  <h2>Articles</h2>
-  <div class="articles-grid">
-    <article class="card">
-      <img class="medium-img" src="img/indoor.jpg" alt="Indoor Plant Tips">
-      <h3>Indoor Plant Tips</h3>
-      <p>Keep your indoor plants thriving all year long.</p>
-      <a href="articles/article1.html">Read More</a>
-    </article>
+<h2>Articles</h2>
+<div class="articles-grid">
+  <article class="card">
+    <img class="medium-img" src="img/indoor.jpg" alt="Indoor Plant Tips">
+    <h3>Indoor Plant Tips</h3>
+    <p>Keep your indoor plants thriving all year long.</p>
+    <a href="articles/article1.html" class="trade-btn">Read More</a>
+  </article>
 
-    <article class="card">
-      <img class="medium-img" src="img/outdoor.jpg" alt="Outdoor Garden Care">
-      <h3>Outdoor Garden Care</h3>
-      <p>Essential gardening tips for your backyard oasis.</p>
-      <a href="articles/article2.html">Read More</a>
-    </article>
+  <article class="card">
+    <img class="medium-img" src="img/outdoor.jpg" alt="Outdoor Garden Care">
+    <h3>Outdoor Garden Care</h3>
+    <p>Essential gardening tips for your outdoor plants.</p>
+    <a href="articles/article2.html" class="trade-btn">Read More</a>
+  </article>
+</div>
+
+<h2>Videos</h2>
+<div class="videos-grid">
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Plant Care Video" allowfullscreen></iframe>
+    <h3>Plant Care Basics</h3>
   </div>
 
-  <h2>Videos</h2>
-  <div class="videos-grid">
-    <div class="video-card">
-      <iframe
-        src="https://www.youtube.com/embed/GZHnYuO8YdM"
-        title="Watering Techniques"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-      </iframe>
-      <h3>Watering Techniques</h3>
-      <p>Step-by-step guide to watering different plant types.</p>
-    </div>
-
-    <div class="video-card">
-      <iframe
-        src="https://www.youtube.com/embed/56wH-ZH94Qs"
-        title="Fertilizer Guide"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-      </iframe>
-      <h3>Fertilizer Guide</h3>
-      <p>Learn which fertilizers are best for indoor and outdoor plants.</p>
-    </div>
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Fertilizing Tips" allowfullscreen></iframe>
+    <h3>Fertilizing Tips</h3>
   </div>
+</div>
 </main>
+
+<footer>
+<p>&copy; 2025 Rooted</p>
+</footer>
 </body>
 </html>

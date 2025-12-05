@@ -1,14 +1,40 @@
 /* ========================
+   Fonts (download via Google Webfonts Helper)
+======================== */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./fonts/merriweather-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/roboto-400.woff2') format('woff2');
+}
+
+/* ========================
    Base Styles
 ======================== */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;500&display=swap');
-
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background: #fff8e7; /* soft cream */
-  color: #2c3e21; /* deep earthy green */
+  background: #fff8e7;
+  color: #2c3e21;
+  line-height: 1.5;
 }
+
+h1, h2, h3 {
+  font-family: 'Merriweather', serif;
+  margin: 0 0 0.5em 0;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3rem); }
+h2 { font-size: clamp(1.5rem, 4vw, 2.25rem); }
+h3 { font-size: clamp(1.2rem, 3vw, 1.75rem); }
+p  { font-size: clamp(1rem, 2.5vw, 1.125rem); }
 
 a {
   text-decoration: none;
@@ -18,36 +44,40 @@ a {
 /* ========================
    Header & Navigation
 ======================== */
-header {
-  background: #3b5a30; /* deep plant green */
-  padding: 15px 0;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+.site-header {
+  background: #3b5a30;
+  padding: 15px 20px;
   position: sticky;
   top: 0;
   z-index: 10;
-}
-
-nav ul {
-  list-style: none;
   display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin: 0;
-  padding: 0;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-nav a {
+.site-title {
+  color: #fffbe6;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+.primary-nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.primary-nav a {
   color: #fffbe6;
   font-weight: 600;
-  font-size: 1.1rem;
   padding: 5px 10px;
-  transition: all 0.3s ease;
+  border-radius: 8px;
+  transition: 0.3s;
 }
 
-nav a:hover {
-  color: #d4f4dd;
+.primary-nav a:hover, .primary-nav a[aria-current="page"] {
   background: rgba(255,255,255,0.1);
-  border-radius: 8px;
+  color: #d4f4dd;
 }
 
 /* ========================
@@ -55,33 +85,16 @@ nav a:hover {
 ======================== */
 .hero {
   text-align: center;
-  padding: 120px 20px;
-  position: relative;
+  padding: 100px 20px;
   background: url('images/hero-placeholder.jpg') center/cover no-repeat;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(60,90,48,0.5);
-}
-
-.hero h1, .hero p {
-  position: relative;
-  z-index: 1;
   color: #fffbe6;
 }
 
 .hero h1 {
-  font-family: 'Merriweather', serif;
-  font-size: 3rem;
   margin-bottom: 15px;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
 }
 
 .hero p {
-  font-size: 1.2rem;
   opacity: 0.95;
 }
 
@@ -104,19 +117,12 @@ nav a:hover {
   overflow: hidden;
   cursor: pointer;
   box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-  transition: 0.3s;
 }
 
 .feature-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: 0.5s;
-  animation: floatLeaf 6s ease-in-out infinite;
-}
-
-.feature-card:hover img {
-  transform: scale(1.12);
 }
 
 .feature-text {
@@ -132,46 +138,33 @@ nav a:hover {
 /* ========================
    Grids & Cards
 ======================== */
-.plants-grid, .articles-grid, .videos-grid, .seed-grid, .issues-grid {
+.plants-grid,
+.articles-grid,
+.videos-grid,
+.seed-grid,
+.issues-grid {
   display: grid;
-  gap: 25px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  padding: 40px 20px;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 20px;
 }
 
 .plant-card, .card, .video-card, .seed-card, .issue-card {
   background: #fff8e7;
   padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden;
-  position: relative;
-  animation: pulseCard 5s ease-in-out infinite;
-}
-
-.plant-card:hover, .card:hover, .video-card:hover, .seed-card:hover, .issue-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.2);
-}
-
-.card h3, .video-card h3, .plant-card h3, .seed-card h3, .issue-card h3 {
-  margin: 0 0 10px 0;
-  color: #3b5a30;
-  font-family: 'Merriweather', serif;
-}
-
-.card p, .video-card p, .plant-card p, .seed-card p, .issue-card p {
-  color: #53634f;
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-
-.seed-image, .issue-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
   border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.plant-card img,
+.seed-card img,
+.issue-card img,
+.video-card iframe {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
   margin-bottom: 10px;
 }
 
@@ -179,16 +172,14 @@ nav a:hover {
    Buttons & Forms
 ======================== */
 button, .trade-btn {
-  display: inline-block;
   background: #88b04b;
   color: white;
   border: none;
-  padding: 10px 25px;
+  padding: 10px 20px;
   border-radius: 12px;
   cursor: pointer;
   font-weight: 600;
   transition: 0.3s;
-  margin: 5px;
   text-decoration: none;
 }
 
@@ -202,7 +193,6 @@ input, textarea {
   border-radius: 12px;
   border: 1px solid #c7d3b3;
   margin-bottom: 15px;
-  font-size: 1rem;
   font-family: inherit;
 }
 
@@ -223,75 +213,31 @@ input, textarea {
 }
 
 /* ========================
-   Animations
-======================== */
-@keyframes floatLeaf {
-  0% { transform: translateY(0px) rotate(0deg); }
-  25% { transform: translateY(-5px) rotate(1deg); }
-  50% { transform: translateY(0px) rotate(0deg); }
-  75% { transform: translateY(-5px) rotate(-1deg); }
-  100% { transform: translateY(0px) rotate(0deg); }
-}
-
-@keyframes pulseCard {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.02); }
-  100% { transform: scale(1); }
-}
-
-/* ========================
    Footer
 ======================== */
 footer {
   text-align: center;
   background: #3b5a30;
   color: #fdf6e3;
-  padding: 30px 0;
+  padding: 30px 20px;
   margin-top: 40px;
-  font-size: 0.95rem;
+  font-size: clamp(0.8rem, 2vw, 1rem);
 }
 
-.plant-card img {
-  width: 120px;       /* same width for all */
-  height: 120px;      /* same height for all */
-  object-fit: cover;  /* crops images cleanly */
-  border-radius: 12px;
-  display: block;
-  margin: 0 auto 10px auto; /* centers the image */
-}
-
-/* Center cards and their content */
-.card,
-.video-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 15px;
-  border-radius: 12px;
-}
-
-/* Image sizing */
-.medium-img {
-  width: 100%;          /* fills the card */
-  max-width: 300px;     /* small/medium size */
-  height: auto;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-/* Video sizing */
-.video-card iframe {
-  width: 100%;
-  height: 250px;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-/* Grid layout */
-.articles-grid,
-.videos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+/* ========================
+   Responsive
+======================== */
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .primary-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .features {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
