@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home - Rooted</title>
+<title>Rooted - Plant Hub</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,37 +16,46 @@
     <a href="plant-doctor.html">Plant Doctor</a>
     <a href="community.html">Community</a>
     <a href="seed-exchange.html">Seed Exchange</a>
+    <a href="about.html">About</a>
   </nav>
 </header>
 
 <main>
-  <section class="hero">
-    <h1>Welcome to Rooted</h1>
-    <p>Your guide to plants, care, and community.</p>
-  </section>
 
-  <section class="features">
-    <a href="plants.html" class="feature-card">
-      <img src="img/plantdirectory.avif" alt="Plant Directory">
-      <div class="feature-text"><h3>Plant Directory</h3></div>
-    </a>
-    <a href="plant-doctor.html" class="feature-card">
-      <img src="img/plantdoctor.jpg" alt="Plant Doctor">
-      <div class="feature-text"><h3>Plant Doctor</h3></div>
-    </a>
-    <a href="community.html" class="feature-card">
-      <img src="img/community.jpg" alt="Community">
-      <div class="feature-text"><h3>Community</h3></div>
-    </a>
-    <a href="seed-exchange.html" class="feature-card">
-      <img src="img/seeds.jpg" alt="Seed Exchange">
-      <div class="feature-text"><h3>Seed Exchange</h3></div>
-    </a>
-  </section>
+<!-- Hero / Welcome Section -->
+<section class="hero">
+  <h1>Welcome to Rooted</h1>
+  <p>Your one-stop hub for plants, care guides, and community sharing.</p>
+</section>
+
+<!-- Features Section -->
+<section class="features">
+  <a href="plants.html" class="feature-card">
+    <img src="img/plantdirectory.avif" alt="Plant Directory">
+    <div class="feature-text"><h3>Plant Directory</h3></div>
+  </a>
+  <a href="plant-doctor.html" class="feature-card">
+    <img src="img/plantdoctor.jpg" alt="Plant Doctor">
+    <div class="feature-text"><h3>Plant Doctor</h3></div>
+  </a>
+  <a href="community.html" class="feature-card">
+    <img src="img/community.jpg" alt="Community">
+    <div class="feature-text"><h3>Community</h3></div>
+  </a>
+  <a href="seed-exchange.html" class="feature-card">
+    <img src="img/seeds.jpg" alt="Seed Exchange">
+    <div class="feature-text"><h3>Seed Exchange</h3></div>
+  </a>
+</section>
+
 </main>
 
 <footer>
-<p>&copy; 2025 Rooted. All rights reserved.</p>
+<p>&copy; <span id="year"></span> Rooted. All rights reserved.</p>
 </footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>

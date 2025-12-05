@@ -1,40 +1,23 @@
 /* ========================
-   Fonts (download via Google Webfonts Helper)
+   Base Styles
 ======================== */
 @font-face {
   font-family: 'Merriweather';
-  font-style: normal;
-  font-weight: 700;
-  src: url('./fonts/merriweather-700.woff2') format('woff2');
+  src: url('fonts/Merriweather-Regular.woff2') format('woff2');
+  font-weight: 400; font-style: normal;
 }
-
 @font-face {
   font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: url('./fonts/roboto-400.woff2') format('woff2');
+  src: url('fonts/Roboto-Regular.woff2') format('woff2');
+  font-weight: 400; font-style: normal;
 }
 
-/* ========================
-   Base Styles
-======================== */
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   background: #fff8e7;
   color: #2c3e21;
-  line-height: 1.5;
 }
-
-h1, h2, h3 {
-  font-family: 'Merriweather', serif;
-  margin: 0 0 0.5em 0;
-}
-
-h1 { font-size: clamp(2rem, 5vw, 3rem); }
-h2 { font-size: clamp(1.5rem, 4vw, 2.25rem); }
-h3 { font-size: clamp(1.2rem, 3vw, 1.75rem); }
-p  { font-size: clamp(1rem, 2.5vw, 1.125rem); }
 
 a {
   text-decoration: none;
@@ -44,40 +27,34 @@ a {
 /* ========================
    Header & Navigation
 ======================== */
-.site-header {
+header.site-header {
   background: #3b5a30;
-  padding: 15px 20px;
+  padding: 15px 0;
   position: sticky;
   top: 0;
   z-index: 10;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  text-align: center;
 }
 
-.site-title {
+header.site-header h1 {
   color: #fffbe6;
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
-}
-
-.primary-nav {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  font-family: 'Merriweather', serif;
+  margin: 0 0 10px 0;
 }
 
 .primary-nav a {
   color: #fffbe6;
   font-weight: 600;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  margin: 0 10px;
   padding: 5px 10px;
-  border-radius: 8px;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
-.primary-nav a:hover, .primary-nav a[aria-current="page"] {
-  background: rgba(255,255,255,0.1);
+.primary-nav a:hover {
   color: #d4f4dd;
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
 }
 
 /* ========================
@@ -91,10 +68,13 @@ a {
 }
 
 .hero h1 {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
   margin-bottom: 15px;
 }
 
 .hero p {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
   opacity: 0.95;
 }
 
@@ -110,13 +90,14 @@ a {
 }
 
 .feature-card {
-  position: relative;
   flex: 1 1 250px;
+  max-width: 300px;
   height: 200px;
   border-radius: 20px;
   overflow: hidden;
-  cursor: pointer;
-  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
 }
 
 .feature-card img {
@@ -131,55 +112,57 @@ a {
   background: rgba(0,0,0,0.5);
   color: #fff;
   width: 100%;
-  padding: 15px;
+  padding: 10px;
   text-align: center;
 }
 
 /* ========================
    Grids & Cards
 ======================== */
-.plants-grid,
-.articles-grid,
-.videos-grid,
-.seed-grid,
-.issues-grid {
+.plants-grid, .articles-grid, .videos-grid, .seed-grid, .issues-grid {
   display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  padding: 20px;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  padding: 40px 20px;
 }
 
 .plant-card, .card, .video-card, .seed-card, .issue-card {
   background: #fff8e7;
   padding: 20px;
-  border-radius: 15px;
+  border-radius: 20px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
   text-align: center;
 }
 
-.plant-card img,
-.seed-card img,
-.issue-card img,
+.plant-card img, .seed-card img, .issue-card img, .card img, .video-card img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin: 0 auto 10px;
+  border-radius: 12px;
+}
+
 .video-card iframe {
   width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 10px;
+  aspect-ratio: 16/9;
+  border-radius: 10px;
 }
 
 /* ========================
    Buttons & Forms
 ======================== */
 button, .trade-btn {
+  display: inline-block;
   background: #88b04b;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 25px;
   border-radius: 12px;
   cursor: pointer;
   font-weight: 600;
   transition: 0.3s;
+  margin: 5px;
   text-decoration: none;
 }
 
@@ -193,6 +176,7 @@ input, textarea {
   border-radius: 12px;
   border: 1px solid #c7d3b3;
   margin-bottom: 15px;
+  font-size: 1rem;
   font-family: inherit;
 }
 
@@ -219,25 +203,16 @@ footer {
   text-align: center;
   background: #3b5a30;
   color: #fdf6e3;
-  padding: 30px 20px;
-  margin-top: 40px;
+  padding: 30px 0;
   font-size: clamp(0.8rem, 2vw, 1rem);
 }
 
 /* ========================
-   Responsive
+   Responsive adjustments
 ======================== */
 @media (max-width: 768px) {
-  .site-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .primary-nav {
-    flex-direction: column;
-    gap: 10px;
-  }
   .features {
     flex-direction: column;
-    gap: 20px;
+    align-items: center;
   }
 }
