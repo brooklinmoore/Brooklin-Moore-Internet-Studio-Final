@@ -216,3 +216,20 @@ footer {
     align-items: center;
   }
 }
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: url('images/hero-placeholder.jpg') center/cover no-repeat;
+  color: #fffbe6;
+}
+
+.hero h1 {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  opacity: 0.95;
+}
